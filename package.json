@@ -4,11 +4,16 @@
   "description": "Sample app",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon app"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "multer": "^1.4.3",
+    "sharp": "^0.29.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
   }
 }
