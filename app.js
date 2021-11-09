@@ -7,6 +7,13 @@ const storageStrategy = multer.memoryStorage();
 const upload = multer({ storage: storageStrategy });
 const app = express();
 
+var products = [
+    { id: 0, name: 'Sabritas 45grs', price: 11.00}
+  , { id: 1, name: 'Ruffles 45grs', price: 11.00}
+  , { id: 2, name: 'Cheetos Bolita 30grs', price: 8.50}
+];
+
+
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -23,6 +30,10 @@ app.post('/imagen', upload.single('imagen'),async (req, res) => {
     fs.writeFileSync(`./uploads/${body.nombre}.jpg`, processedImage);
     console.log(processedImage);
     res.send({resizedImage: processedImage});
+});
+
+app.post('/products', (req, res) => {
+    res.json(products);
 });
 
 const PORT = process.env.PORT || 3000;
