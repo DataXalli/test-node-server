@@ -9,8 +9,11 @@ const app = express();
 
 var products = [
     { id: 0, name: 'Sabritas 45grs', price: 11.00}
-  , { id: 1, name: 'Ruffles 45grs', price: 11.00}
+  , { id: 1, name: 'Ruffles 45grs', price: 10.00}
   , { id: 2, name: 'Cheetos Bolita 30grs', price: 8.50}
+  , { id: 3, name: 'Sabritas Adobas 45grs', price: 10.50}
+  , { id: 4, name: 'Rancheritos 30grs', price: 6.50}
+  , { id: 5, name: 'Fritos 35grs', price: 8.00}      
 ];
 
 
