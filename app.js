@@ -1,7 +1,7 @@
 const express = require('express');
-const multer = require('multer');
-const sharp = require('sharp');
-const fs = require('fs');
+const multer  = require('multer');
+const sharp   = require('sharp');
+const fs      = require('fs');
 
 const storageStrategy = multer.memoryStorage();
 const upload = multer({ storage: storageStrategy });
