@@ -1,11 +1,14 @@
 const express = require('express');
 const multer  = require('multer');
 const sharp   = require('sharp');
+const fetch   = require('node-fetch');
 const fs      = require('fs');
 
 const storageStrategy = multer.memoryStorage();
 const upload = multer({ storage: storageStrategy });
 const app = express();
+
+const NOMICS_API_KEY = 'f5e0a0f5bb632af641a3729c10a0a5c7695eb4f0';
 
 var products = [
     { id: 0, name: 'Sabritas 45grs', price: 11.00}
@@ -16,11 +19,15 @@ var products = [
   , { id: 5, name: 'Fritos 35grs', price: 8.00}      
 ];
 
-
 app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
+});
+
+app.get('/prices',(req,res) => {
+    fetch("https://api.nomics.com/v1/prices?key=" + NOMICS_API_KEY)
+    .then(response => response.json()).then(data => {res.send(data.data)}).catch
 });
 
 app.post('/imagen', upload.single('imagen'),async (req, res) => {
