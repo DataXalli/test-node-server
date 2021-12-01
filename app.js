@@ -27,7 +27,8 @@ app.get('/', (req, res) => {
 
 app.get('/prices',(req,res) => {
     fetch("https://api.nomics.com/v1/prices?key=" + NOMICS_API_KEY)
-    .then(response => response.json()).then(data => {res.send(data.data)}).catch
+    .then(response => {return response.json()})
+    .then(data => {console.log(data); res.send(data)})
 });
 
 app.post('/imagen', upload.single('imagen'),async (req, res) => {
