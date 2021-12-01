@@ -25,11 +25,13 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+
 app.get('/prices',(req,res) => {
     fetch("https://api.nomics.com/v1/prices?key=" + NOMICS_API_KEY)
     .then(response => {return response.json()})
     .then(data => {console.log(data); res.send(data)})
 });
+
 
 app.post('/imagen', upload.single('imagen'),async (req, res) => {
     const body = req.body;
